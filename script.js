@@ -1,7 +1,7 @@
 
 // [x] the current day is displayed at the top of the calendar when calendar opens
-// [ ] WHEN I scroll down THEN I am presented with timeblocks for standard business hours
-// [ ] each timeblock is color coded to indicate whether it is in the past, present, or future
+// [X] WHEN I scroll down THEN I am presented with timeblocks for standard business hours
+// [- Buggy] each timeblock is color coded to indicate whether it is in the past, present, or future (CHANGE CLASSES, ADD REMOVE FUTURE & PAST & PRESENT)
 // [X] WHEN I click into a timeblock THEN I can enter an event
 // [ ] WHEN I click the save button for that timeblock THEN the text for that event is saved in local storage
 // [ ] WHEN I refresh the page THEN the saved events persist
@@ -23,6 +23,31 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
+  var todaysHour = dayjs().format('hA');
+  var workdayHours = 9;
+
+  var hourBox = $('.container-lg').children('.row');
+
+
+  for(var i = 0; i < workdayHours; i++) {
+    if (hourBox.eq(i).children('.hour').text() === todaysHour) {
+      hourBox.eq(i).addClass('present');
+    } else if (hourBox.eq(i).children('.hour').text() < todaysHour) {
+      hourBox.eq(i).addClass('past');
+    } else if (hourBox.eq(i).children('.hour').text() > todaysHour){
+      hourBox.eq(i).addClass('future');
+    }
+    // var hourEl = hourBox.eq(i).children('.hour').text();
+    // var hourDiff = todaysDate.diff(hourEl,'hour');
+    // console.log(todaysHour);
+    // if ( hourDiff === 0) {
+    //   hourBox.eq(i).addClass('present');
+    // } else if (hourDiff < 0) {
+    //   hourBox.eq(i).addClass('past');
+    // } else if (hourDiff > 0){
+    //   hourBox.eq(i).addClass('future');
+    // }
+  }
 
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
