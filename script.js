@@ -57,7 +57,6 @@ $(function () {
 
 // when save button is clicked, save input to local storage
 saveButton.on('click', function() {
-  window.localStorage.removeItem('savedList');
 
   for (var i = 0; i < workdayHours; i++) {
     savedList.pop();
