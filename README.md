@@ -7,6 +7,8 @@ It helps keep track of each to-do item with the hour of the day, changing colour
 
 This helped me learn a lot about JQUery syntax and Day.JS
 
+Heres a link to check it out: https://zeinahares.github.io/Workday-To-Do-List/
+
 ## Installation
 
 N/A
